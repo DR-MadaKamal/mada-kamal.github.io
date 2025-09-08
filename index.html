@@ -1,424 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>مادا كمال — تسويق رقمي وتطوير أعمال</title>
-
-  <!-- Cairo font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for icons -->
-  <script src="https://kit.fontawesome.com/6b7f4b8b2a.js" crossorigin="anonymous"></script>
-
-  <meta name="description" content="مادا كمال — خِبْرة في التسويق الرقمي وتطوير الأعمال — Portfolio و Showcase للأعمال.">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مادا كمال | Digital Marketing & Business Development</title>
   <style>
-    /* -------------- تعديل الألوان هنا لتغيير الثيم بسهولة -------------- */
-    :root{
-      --bg: #0f1724;            /* خلفية رئيسية (داكن افتراضي) */
-      --surface: #0b1220;
-      --text: #e6eef8;
-      --muted: #97a6c2;
-      --primary: #424C99;      /* أزرق براند */
-      --accent: #FFA973;       /* برتقالي */
-      --accent-2: #6CAB96;     /* أخضر */
-      --glass: rgba(255,255,255,0.04);
-      --radius: 12px;
-      --max-width: 1100px;
-    }
-
-    /* Light theme (يمكن تبديله عبر الزر) */
-    .light {
-      --bg: #f6f7fb;
-      --surface: #ffffff;
-      --text: #0b1220;
-      --muted: #6b7280;
-      --glass: rgba(11,18,32,0.04);
-    }
-
-    /* إعدادات عامة */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,var(--bg),#061022 80%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-    }
-    a{color:var(--accent); text-decoration:none}
-    .container{max-width:var(--max-width);margin:0 auto;padding:2rem}
-
-    /* NAV / HEADER */
-    header.site-header{
-      position:sticky; top:0; z-index:40;
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(11,18,32,0.32), rgba(11,18,32,0.12));
-      border-bottom:1px solid rgba(255,255,255,0.03);
-    }
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem; padding:14px 2rem; max-width:var(--max-width); margin:auto}
-    .brand{display:flex;align-items:center;gap:0.8rem}
-    .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.06)}
-    .brand h1{font-size:1.05rem;margin:0;font-weight:800;letter-spacing:0.4px}
-    nav.main-nav{display:flex;gap:0.8rem;align-items:center}
-    nav.main-nav a{padding:.5rem .75rem;border-radius:8px;color:var(--muted);font-weight:600}
-    nav.main-nav a:hover{background:var(--glass); color:var(--text)}
-
-    /* HERO */
-    .hero{
-      display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:center;padding:4rem 0;
-    }
-    .hero .profile {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      padding:2rem;border-radius:var(--radius); box-shadow: 0 8px 30px rgba(2,6,23,.6);
-    }
-    .hero h2{font-size:2.4rem;margin:0 0 .5rem}
-    .hero p.lead{color:var(--muted);margin:0 0 1.2rem}
-    .cta{display:flex;gap:0.8rem;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;gap:.6rem;padding:10px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer;
-      background:linear-gradient(90deg,var(--primary),var(--accent));
-      color:white;box-shadow: 0 6px 18px rgba(66,76,153,0.14);
-    }
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06); color:var(--text)}
-    .profile-card{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
-    .profile-card img{width:220px;height:220px;border-radius:14px;object-fit:cover;border:6px solid rgba(255,255,255,0.03)}
-    .socials{display:flex;gap:0.6rem}
-
-    /* SECTIONS */
-    section{padding:2.5rem 0}
-    section h3{margin:0 0 1rem;color:var(--primary);display:inline-block;border-bottom:3px solid var(--accent);padding-bottom:.2rem}
-
-    /* SERVICES */
-    .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:var(--surface);padding:1.15rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-
-    /* SKILLS */
-    .skill{margin:0.6rem 0}
-    .skill-title{display:flex;justify-content:space-between;font-weight:700;color:var(--muted);font-size:.95rem;margin-bottom:.4rem}
-    .bar{height:10px;background:rgba(255,255,255,0.05);border-radius:999px;overflow:hidden}
-    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
-
-    /* PORTFOLIO */
-    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .portfolio-item{position:relative;overflow:hidden;border-radius:10px;cursor:pointer}
-    .portfolio-item img{width:100%;height:180px;object-fit:cover;display:block;transition:transform .4s}
-    .portfolio-item:hover img{transform:scale(1.06)}
-    .portfolio-caption{position:absolute;inset:auto 0 0 0;padding:.8rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.5));color:white}
-
-    /* TIMELINE */
-    .timeline{position:relative;padding-left:1rem}
-    .timeline::before{content:"";position:absolute;right:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--primary));border-radius:4px}
-    .timeline-item{position:relative;padding:1rem 1.4rem;margin-bottom:1.1rem;background:var(--surface);border-radius:12px}
-    .timeline-item .date{font-weight:800;color:var(--accent);margin-bottom:.25rem}
-
-    /* CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem}
-    form.contact{display:flex;flex-direction:column;gap:.7rem}
-    input,textarea{padding:.8rem;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
-    textarea{min-height:140px;resize:vertical}
-
-    /* FOOTER */
-    footer.site-footer{text-align:center;padding:1.5rem 0;color:var(--muted);font-size:.95rem}
-
-    /* MODAL (portfolio lightbox) */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:80;padding:2rem}
-    .modal.show{display:flex}
-    .modal .box{max-width:900px;background:var(--surface);padding:1rem;border-radius:10px;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
-    .modal img{max-width:100%;height:auto;border-radius:8px;display:block}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr; text-align:center}
-      .contact-grid{grid-template-columns:1fr}
-      header .header-inner{padding:10px 1rem}
-    }
-
-    @media (max-width:560px){
-      .brand h1{font-size:0.95rem}
-      .hero h2{font-size:1.6rem}
-      .profile-card img{width:160px;height:160px}
-    }
-
-    /* small util */
-    .muted{color:var(--muted)}
-    .kpi{display:flex;gap:1rem;flex-wrap:wrap}
-    .kpi .item{background:var(--glass);padding:.6rem 1rem;border-radius:10px;font-weight:700;color:var(--text)}
-    .theme-toggle{border-radius:999px;padding:6px 10px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer;color:var(--text)}
+    body { font-family: "Cairo", sans-serif; margin:0; padding:0; background:#f0f0f0; color:#333; }
+    header { background:#424C99; color:white; padding:1.5rem; text-align:center; position:sticky; top:0; }
+    nav a { margin:0 1rem; color:white; text-decoration:none; font-weight:bold; }
+    section { max-width:1000px; margin:2rem auto; padding:1rem; background:white; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    h2 { color:#424C99; }
+    .skills { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+    .skill { background:#f9f9f9; padding:1rem; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
+    .progress { background:#ddd; border-radius:20px; overflow:hidden; height:12px; margin-top:5px; }
+    .progress div { height:12px; background:#FFA973; }
+    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+    .service { padding:1rem; background:#F2E9D0; border-radius:8px; }
+    .timeline { border-left:3px solid #6CAB96; padding-left:1rem; }
+    .timeline-item { margin-bottom:1.5rem; }
+    .portfolio { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+    .card { background:#fff; padding:1rem; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:1rem; background:#424C99; color:white; margin-top:2rem; }
+    a.button { display:inline-block; padding:0.7rem 1.2rem; background:#6CAB96; color:white; border-radius:8px; text-decoration:none; margin-top:10px; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <img src="assets/img/profile.jpg" alt="Mada Kamal">
-        <div>
-          <h1>مادا كمال</h1>
-          <div class="muted" style="font-size:.86rem">Digital Marketing · Business Development</div>
-        </div>
-      </div>
+<header>
+  <h1>مادا كمال</h1>
+  <p>Digital Marketing & Business Development</p>
+  <nav>
+    <a href="#about">عنّي</a>
+    <a href="#skills">المهارات</a>
+    <a href="#services">الخدمات</a>
+    <a href="#cv">السيرة الذاتية</a>
+    <a href="#portfolio">الأعمال</a>
+    <a href="#contact">تواصل</a>
+  </nav>
+</header>
 
-      <nav class="main-nav" aria-label="القائمة الرئيسية">
-        <a href="#about">عنّي</a>
-        <a href="#services">خدمات</a>
-        <a href="#portfolio">أعمال</a>
-        <a href="#timeline">الخبرة</a>
-        <a href="#contact">تواصل</a>
-        <button id="themeBtn" class="theme-toggle" title="تغيير الثيم"><i class="fa fa-adjust"></i></button>
-      </nav>
+<section id="about">
+  <h2>عنّي</h2>
+  <p>أنا مادا كمال، خبيرة تسويق رقمي وتطوير أعمال بخبرة عملية في إدارة الحملات الإعلانية، بناء الاستراتيجيات، وتصميم المحتوى الإبداعي. أعمل على ربط التسويق بالإبداع لبناء علامات تجارية قوية ونمو حقيقي.</p>
+</section>
+
+<section id="skills">
+  <h2>المهارات</h2>
+  <div class="skills">
+    <div class="skill"><h3>SEO & SEM</h3><div class="progress"><div style="width:90%"></div></div></div>
+    <div class="skill"><h3>Social Media Ads</h3><div class="progress"><div style="width:95%"></div></div></div>
+    <div class="skill"><h3>Google Ads & Analytics</h3><div class="progress"><div style="width:85%"></div></div></div>
+    <div class="skill"><h3>Business Strategy</h3><div class="progress"><div style="width:88%"></div></div></div>
+    <div class="skill"><h3>Sales Funnels</h3><div class="progress"><div style="width:80%"></div></div></div>
+    <div class="skill"><h3>Graphic Design</h3><div class="progress"><div style="width:92%"></div></div></div>
+    <div class="skill"><h3>Motion Graphics</h3><div class="progress"><div style="width:85%"></div></div></div>
+    <div class="skill"><h3>Video Editing</h3><div class="progress"><div style="width:90%"></div></div></div>
+  </div>
+</section>
+
+<section id="services">
+  <h2>الخدمات</h2>
+  <div class="services">
+    <div class="service">إدارة الحملات الإعلانية على Facebook و Instagram</div>
+    <div class="service">إعلانات Google و YouTube</div>
+    <div class="service">تحسين محركات البحث (SEO)</div>
+    <div class="service">تسويق عبر الواتساب</div>
+    <div class="service">إدارة محتوى السوشيال ميديا</div>
+    <div class="service">تصميم الهوية البصرية</div>
+    <div class="service">تصميم Landing Pages</div>
+    <div class="service">مونتاج فيديو وصناعة محتوى مرئي</div>
+    <div class="service">استشارات تطوير الأعمال</div>
+    <div class="service">Email Marketing وحملات تفاعلية</div>
+  </div>
+</section>
+
+<section id="cv">
+  <h2>السيرة الذاتية</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>خبرة: Digital Marketing Specialist</h3>
+      <p>2020 - الآن | إدارة حملات وإعلانات متنوعة لعلامات تجارية في مصر والمنطقة العربية.</p>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <main>
-    <section class="hero container" id="home">
-      <div class="profile">
-        <h2>مرحبا، أنا مادا كمال</h2>
-        <p class="lead">أساعد العلامات التجارية على النمو عبر استراتيجيات تسويق رقمي متكاملة وتطوير أعمال مدروس.</p>
-
-        <div class="kpi" aria-hidden>
-          <div class="item">+8 سنوات خبرة</div>
-          <div class="item">+120 حملة ناجحة</div>
-          <div class="item">نتائج محققة ROI</div>
-        </div>
-
-        <div style="height:16px"></div>
-
-        <div class="cta">
-          <a class="btn" href="assets/files/CV-MadaKamal.pdf" target="_blank" rel="noopener">تحميل السيرة الذاتية <i class="fa fa-download"></i></a>
-          <a class="btn secondary" href="mailto:mada.kamal@email.com">راسلني</a>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="muted">تواصل سريع: 
-          <a href="https://wa.me/201000000000" target="_blank" style="margin-left:8px">واتساب <i class="fa fa-whatsapp"></i></a>
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="margin-left:8px">لينكدإن <i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <aside class="profile-card">
-        <img src="assets/img/profile-hero.jpg" alt="Mada — profile">
-        <div>
-          <div style="font-weight:800;font-size:1.05rem">Mada Kamal</div>
-          <div class="muted">خبير تسويق وتطوير أعمال</div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="container">
-      <h3>عنّي</h3>
-      <div style="display:grid;grid-template-columns:1fr 360px;gap:1rem;margin-top:1rem">
-        <div>
-          <p class="muted">أنا متخصصة في بناء استراتيجيات تسويق رقمي قابلة للقياس، إدارة الحملات، وتحليل الأداء لتسريع نمو الشركات. أحب تبسيط البيانات وتحويلها إلى إجراءات قابلة للتنفيذ.</p>
-
-          <h4 style="margin-top:1rem">مهارات أساسية</h4>
-          <div class="skill">
-            <div class="skill-title"><span>إدارة حملات إعلانية</span><span>95%</span></div>
-            <div class="bar"><i style="width:95%"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-title"><span>SEO & Content</span><span>88%</span></div>
-            <div class="bar"><i style="width:88%"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-title"><span>تحليل بيانات & KPIs</span><span>92%</span></div>
-            <div class="bar"><i style="width:92%"></i></div>
-          </div>
-        </div>
-
-        <div>
-          <div class="card">
-            <h4 style="margin-top:0">خدمات سريعة</h4>
-            <ul style="padding-left:1rem">
-              <li>إستراتيجية تسويق رقمي مخصصة</li>
-              <li>إدارة حملات Facebook/Instagram/Google</li>
-              <li>تحويل الزوار إلى عملاء (CRO)</li>
-              <li>بناء شبكات و شراكات تجارية</li>
-            </ul>
-          </div>
-
-          <div style="height:1rem"></div>
-          <div class="card">
-            <h4 style="margin-top:0">أرقام سريعة</h4>
-            <p class="muted" style="margin:0">متوسط تحسين العائد على الإنفاق الإعلاني لدى عملائي +30% خلال 3 أشهر.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="container">
-      <h3>الخدمات</h3>
-      <div class="grid" style="margin-top:1rem">
-        <div class="card">
-          <h4>استراتيجية تسويق</h4>
-          <p class="muted">خطة عمل متكاملة مبنية على تحليل السوق والجمهور.</p>
-        </div>
-        <div class="card">
-          <h4>إدارة الحملات الإعلانية</h4>
-          <p class="muted">تصميم، استهداف، وتحليل نتائج الحملات لزيادة المبيعات.</p>
-        </div>
-        <div class="card">
-          <h4>Content & Creative</h4>
-          <p class="muted">محتوى بصري ونصي متوافق مع رحلة العميل.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="container">
-      <h3>أعمال سابقة</h3>
-      <div class="portfolio-grid" style="margin-top:1rem">
-        <!-- اضيف عناصر البورتفوليو هنا؛ استبدل src بالمسارات الحقيقية بعد الرفع -->
-        <div class="portfolio-item" data-title="حملة تسويق لشركة أ" data-img="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=60" alt="مشروع 1">
-          <div class="portfolio-caption">
-            <strong>حملة تسويق لشركة أ</strong><div class="muted">زيادة المبيعات 40%</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item" data-title="انطلاق منتج جديد" data-img="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc">
-          <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=900&q=60" alt="مشروع 2">
-          <div class="portfolio-caption">
-            <strong>انطلاق منتج جديد</strong><div class="muted">تصميم حملة + موقع هبوط</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item" data-title="سلسلة فيديوهات تعليمية" data-img="https://images.unsplash.com/photo-1515879218367-8466d910aaa4">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=900&q=60" alt="مشروع 3">
-          <div class="portfolio-caption">
-            <strong>سلسلة فيديوهات</strong><div class="muted">موشن جرافيك وتحويلات عالية</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section id="timeline" class="container">
-      <h3>الخبرة المهنية</h3>
-      <div class="timeline" style="margin-top:1rem">
-        <div class="timeline-item card">
-          <div class="date">2023 — الآن</div>
-          <div class="muted">مستشارة تسويق رقمي لشركات ناشئة ومتوسطة — إدارة حملات شاملة ورفع مؤشرات الأداء.</div>
-        </div>
-
-        <div class="timeline-item card">
-          <div class="date">2018 — 2023</div>
-          <div class="muted">مدير تسويق رقمي في وكالة تسويق — قيادة فرق وإطلاق حملات دولية.</div>
-        </div>
-
-        <div class="timeline-item card">
-          <div class="date">2015 — 2018</div>
-          <div class="muted">بداية العمل الحر والتركيز على تطوير الأعمال والـ Growth.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="container">
-      <h3>تواصل معي</h3>
-      <div class="contact-grid" style="margin-top:1rem">
-        <form class="contact card" id="contactForm">
-          <input type="text" id="name" placeholder="اسمك" required>
-          <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-          <input type="text" id="subject" placeholder="الموضوع">
-          <textarea id="message" placeholder="ماذا تريد أن تناقش؟" required></textarea>
-          <div style="display:flex;gap:.6rem;align-items:center">
-            <button type="submit" class="btn">أرسل رسالة</button>
-            <div class="muted" style="font-size:.9rem">أو تواصل عبر <a href="https://wa.me/201000000000" target="_blank">واتساب</a></div>
-          </div>
-        </form>
-
-        <aside class="card">
-          <h4 style="margin-top:0">معلومات التواصل</h4>
-          <p class="muted" style="margin:.5rem 0">📍 مصر</p>
-          <p style="margin:.2rem 0">📱 <a href="tel:+201000000000">+20 100 000 0000</a></p>
-          <p style="margin:.2rem 0">📧 <a href="mailto:mada.kamal@email.com">mada.kamal@email.com</a></p>
-          <div style="height:1rem"></div>
-          <a class="btn" href="assets/files/CV-MadaKamal.pdf" target="_blank"><i class="fa fa-download"></i> تحميل السيرة الذاتية</a>
-        </aside>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- PORTFOLIO MODAL -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="box">
-      <button id="closeModal" style="float:left;border:0;background:transparent;color:var(--text);font-size:1.05rem;margin-bottom:.5rem;cursor:pointer">إغلاق ✕</button>
-      <div id="modalTitle" style="font-weight:800;margin-bottom:.6rem"></div>
-      <img id="modalImg" src="" alt="">
+    <div class="timeline-item">
+      <h3>تعليم: بكالوريوس صيدلة</h3>
+      <p>جامعة XYZ - 2019</p>
+    </div>
+    <div class="timeline-item">
+      <h3>شهادات</h3>
+      <p>Google Ads Certification, Meta Blueprint, وغيرها.</p>
     </div>
   </div>
+</section>
 
-  <footer class="site-footer" style="margin-top:2rem">
-    <div class="container">
-      <div class="muted">© 2025 مادا كمال — جميع الحقوق محفوظة.</div>
-    </div>
-  </footer>
+<section id="portfolio">
+  <h2>الأعمال</h2>
+  <div class="portfolio">
+    <div class="card"><h3>مشروع 1</h3><p>حملة تسويق ناجحة حققت 200% ROI.</p></div>
+    <div class="card"><h3>مشروع 2</h3><p>تصميم هوية بصرية كاملة لعلامة تجارية ناشئة.</p></div>
+    <div class="card"><h3>مشروع 3</h3><p>استراتيجية تطوير أعمال لشركة ناشئة في قطاع التكنولوجيا.</p></div>
+  </div>
+</section>
 
-  <script>
-    /* ====== Theme toggle (Dark <-> Light) ====== */
-    (function(){
-      const root = document.documentElement;
-      const btn = document.getElementById('themeBtn');
-      const key = 'site-theme';
-      const apply = (mode) => {
-        if(mode === 'light') root.classList.add('light'); else root.classList.remove('light');
-        localStorage.setItem(key, mode);
-      };
-      const init = () => {
-        const stored = localStorage.getItem(key) || 'dark';
-        apply(stored);
-      };
-      btn.addEventListener('click',()=>{
-        const cur = root.classList.contains('light') ? 'light' : 'dark';
-        apply(cur === 'light' ? 'dark' : 'light');
-      });
-      init();
-    })();
+<section id="contact">
+  <h2>تواصل</h2>
+  <p>📧 <a href="mailto:madakamalshaat@gmail.com">madakamalshaat@gmail.com</a></p>
+  <p>📱 +021009852109</p>
+  <a href="https://wa.me/201009852109" class="button" target="_blank">تواصل عبر واتساب</a>
+</section>
 
-    /* ====== Portfolio modal ====== */
-    (function(){
-      const modal = document.getElementById('modal');
-      const modalImg = document.getElementById('modalImg');
-      const modalTitle = document.getElementById('modalTitle');
-      const close = document.getElementById('closeModal');
+<footer>
+  © 2025 Mada Kamal | Digital Marketing & Business Development
+</footer>
 
-      document.querySelectorAll('.portfolio-item').forEach(item=>{
-        item.addEventListener('click',()=>{
-          modal.classList.add('show');
-          modalImg.src = item.dataset.img || item.querySelector('img').src;
-          modalImg.alt = item.dataset.title || '';
-          modalTitle.textContent = item.dataset.title || '';
-          modal.setAttribute('aria-hidden','false');
-        });
-      });
-      close.addEventListener('click',()=>{ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); });
-      modal.addEventListener('click',(e)=>{ if(e.target === modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }});
-    })();
-
-    /* ====== Contact form (simple mailto fallback) ====== */
-    (function(){
-      const form = document.getElementById('contactForm');
-      form.addEventListener('submit', (e)=>{
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim() || 'رسالة من الموقع';
-        const message = document.getElementById('message').value.trim();
-        const body = encodeURIComponent(`الاسم: ${name}\nالبريد: ${email}\n\n${message}`);
-        // افتح برنامج الإيميل الافتراضي بالمحتوى — بديل مؤقت حتى تفعّل SMTP أو backend
-        window.location.href = `mailto:mada.kamal@email.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-      });
-    })();
-  </script>
 </body>
 </html>
