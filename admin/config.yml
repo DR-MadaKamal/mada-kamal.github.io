@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: MadaKamal/mada-kamal.github.io # غيّر MadaKamal باسم المستخدم بتاعك
+  repo: dr-madakamal/mada-kamal.github.io # غيّر MadaKamal باسم المستخدم بتاعك
   branch: main
 
 media_folder: "images/uploads" # مكان تخزين الصور داخل الريبو
